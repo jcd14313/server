@@ -11,7 +11,33 @@ const { TOKEN_SECRET } = require("../constants");
 // Model
 const User = require("../models/user-model");
 
-exports.signup = async (req, res) => {
+exports.authenticated = async (req, res) => {
+  let decoded = {};
+  try {
+    decoded = jsonwebtoken.verify(req.body.token, TOKEN_SECRET);
+  } catch (err) {
+    res.status(500).json({
+      hasError: true,
+      errors: err.message,
+      success: false,
+    });
+  }
+
+  try {
+    const user = await User.findOne({ email: decoded.email }).select(
+      "_id email username"
+    );
+    return res.status(200).json({ user: user, success: true, hasError: false });
+  } catch (err) {
+    res.status(500).json({
+      hasError: true,
+      errors: err,
+      success: false,
+    });
+  }
+};
+
+exports.signup = async () => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {

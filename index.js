@@ -36,7 +36,7 @@ app.use(
 
 app.use(function (err, req, res, next) {
   if (err.name === "UnauthorizedError") {
-    res.status(err.status).send({ message: err.message, error: true });
+    res.status(err.status).send({ errors: err.message, hasError: true });
     return;
   }
   next();
@@ -70,6 +70,12 @@ app.post(
     .withMessage("Invalid email"),
   body("password").not().isEmpty().withMessage("Password is required"),
   authController.signin
+);
+
+app.post(
+  "/api/authenticate",
+  body("token").not().isEmpty().withMessage("token"),
+  authController.authenticated
 );
 
 app.get("/api/students", studentController.allStudents);
