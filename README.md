@@ -11,7 +11,7 @@ code challenge server
 2. Replace DB_URL variable in constants file and replace to your local connection string
 
 ```
-const DB_URL = mongodb://localhost:27017/myapp
+const DB_URL = mongodb://localhost:27017/assignment
 
 ```
 
