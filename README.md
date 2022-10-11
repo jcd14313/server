@@ -10,13 +10,15 @@ code challenge server
 1. Install mongo db in local
 2. Replace DB_URL variable in constants file and replace to your local connection string
 
-``
+```
 const DB_URL = mongodb://localhost:27017/myapp
+
 ```
 
 2.Create a user using postman
 
-``
+```
+
 api: http://localhost:9000/api/signup
 body: 
 {
@@ -24,6 +26,7 @@ body:
     "password": "secretpassword",
     "username": "codegame"
 }
+
 ```
 
 
