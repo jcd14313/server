@@ -12,7 +12,6 @@ code challenge server
 
 ``
 const DB_URL = mongodb://localhost:27017/myapp
-
 ```
 
 2.Create a user using postman
