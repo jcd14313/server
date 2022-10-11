@@ -6,7 +6,7 @@ code challenge server
 * npm run start
 * wait for the db to be connected since Im using MongoDB Atlas it takes time
 ![alt text](https://github.com/jcd14313/server/blob/master/images/db.PNG) 
-* if you want faster db connection 
+## if you want faster db connection 
 1. Install mongo db in local
 2. Replace DB_URL variable in constants file and replace to your local connection string
 
