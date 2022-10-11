@@ -6,6 +6,23 @@ code challenge server
 * npm run start
 * wait for the db to be connected since Im using MongoDB Atlas it takes time
 ![alt text](https://github.com/jcd14313/server/blob/master/images/db.PNG) 
-* if you want faster db connection install mongo db in local and replace
-this variable DB_URL inside constants folder with your mongo db connection
-string
+* if you want faster db connection 
+1. Install mongo db in local
+2. Replace DB_URL variable in constants file and replace to your local connection string
+(e.g)
+``
+const DB_URL = mongodb://localhost:27017/myapp
+```
+2.Create a user using postman
+
+``
+api: http://localhost:9000/api/signup
+body: 
+{
+    "email" : "codegame@gmail.com",
+    "password": "secretpassword",
+    "username": "codegame"
+}
+```
+
+
